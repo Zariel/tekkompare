@@ -3,6 +3,13 @@
 local tekKompareTooltip1, tekKompareTooltip2
 local ShoppingTooltip1, ShoppingTooltip2 = ShoppingTooltip1, ShoppingTooltip2
 
+tekKompareTooltip1 = CreateFrame("GameTooltip", "tekKompareTooltip1", ItemRefTooltip, "ShoppingTooltipTemplate")
+tekKompareTooltip1:SetFrameStrata("TOOLTIP")
+tekKompareTooltip1:SetClampedToScreen(true)
+
+tekKompareTooltip2 = CreateFrame("GameTooltip", "tekKompareTooltip2", ItemRefTooltip, "ShoppingTooltipTemplate")
+tekKompareTooltip2:SetFrameStrata("TOOLTIP")
+tekKompareTooltip2:SetClampedToScreen(true)
 
 local function SetTips(link, owner, tooltip1, tooltip2)
 	--bypass these frames: WorldFrame, player's paperdoll, weapon enchants
@@ -45,16 +52,6 @@ end)
 
 local orig2 = ItemRefTooltip:GetScript("OnTooltipSetItem")
 ItemRefTooltip:SetScript("OnTooltipSetItem", function(frame, ...)
-	if not tekKompareTooltip1 then
-		tekKompareTooltip1 = CreateFrame("GameTooltip", "tekKompareTooltip1", frame, "ShoppingTooltipTemplate")
-		tekKompareTooltip1:SetFrameStrata("TOOLTIP")
-		tekKompareTooltip1:SetClampedToScreen(true)
-
-		tekKompareTooltip2 = CreateFrame("GameTooltip", "tekKompareTooltip2", frame, "ShoppingTooltipTemplate")
-		tekKompareTooltip2:SetFrameStrata("TOOLTIP")
-		tekKompareTooltip2:SetClampedToScreen(true)
-	end
-
  	local _, link = frame:GetItem()
 	SetTips(link, frame, tekKompareTooltip1, tekKompareTooltip2)
 	if orig2 then return orig2(frame, ...) end
