@@ -1,9 +1,9 @@
-## Interface: 20300
-
+## Interface: 20400
 ## Title: tekKompare
 ## Notes: Simple item compare tooltips
 ## Author: Tekkub Stoutwrithe
 ## Version: Alpha
+## OptionalDeps: Chippu
 ## X-Website: http://code.google.com/p/tekkub-wow/
 ## X-Email: tekkub-wow@googlegroups.com
 ## X-Category: Interface Enhancements
